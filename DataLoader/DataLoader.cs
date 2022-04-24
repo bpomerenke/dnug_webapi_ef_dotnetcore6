@@ -1,3 +1,4 @@
+using Bogus;
 using DonorApi.Models;
 using Microsoft.Extensions.Logging;
 
@@ -21,12 +22,20 @@ public class DataLoader : IDataLoader
     {
         _logger.LogInformation("Loading Data...");
 
-        _donorDbContext.Donors.Add(new Donor
+        for (int i = 0; i < 4; i++)
         {
-            Name = "Billy Jean",
-            PhoneNumber = "222-222-2222"
-        });
+            _donorDbContext.Donors.Add(FakeDonor());
+        }
         
         await _donorDbContext.SaveChangesAsync();
+        
+        _logger.LogInformation("Total donors: {Count}", _donorDbContext.Donors.Count());
+    }
+
+    private Faker<Donor> FakeDonor()
+    {
+        return new Faker<Donor>()
+            .RuleFor(d => d.Name, f => f.Name.FullName())
+            .RuleFor(d => d.PhoneNumber, f => f.Phone.PhoneNumber("###-###-####"));
     }
 }
