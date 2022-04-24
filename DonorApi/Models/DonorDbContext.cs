@@ -5,6 +5,7 @@ namespace DonorApi.Models;
 public interface IDonorDbContext
 {
     DbSet<Donor> Donors { get; set; }
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
 public class DonorDbContext : DbContext, IDonorDbContext
 {

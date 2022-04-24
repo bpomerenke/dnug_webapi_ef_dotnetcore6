@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonorApi", "DonorApi\DonorApi.csproj", "{3C551449-EEEA-451B-8861-3B5EC7CD5B0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader", "DataLoader\DataLoader.csproj", "{A7546855-A206-4F13-B480-06F103AA7E0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3C551449-EEEA-451B-8861-3B5EC7CD5B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C551449-EEEA-451B-8861-3B5EC7CD5B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C551449-EEEA-451B-8861-3B5EC7CD5B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7546855-A206-4F13-B480-06F103AA7E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7546855-A206-4F13-B480-06F103AA7E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7546855-A206-4F13-B480-06F103AA7E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7546855-A206-4F13-B480-06F103AA7E0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
