@@ -4,7 +4,7 @@ namespace DonorApi.Models;
 
 public interface IDonorDbContext
 {
-    
+    DbSet<Donor> Donors { get; set; }
 }
 public class DonorDbContext : DbContext, IDonorDbContext
 {
@@ -12,4 +12,6 @@ public class DonorDbContext : DbContext, IDonorDbContext
     {
         
     }
+    
+    public virtual DbSet<Donor> Donors { get; set; }
 }

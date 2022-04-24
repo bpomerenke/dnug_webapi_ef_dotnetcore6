@@ -13,3 +13,10 @@ DISCLAIMER: The choices made for the data model, testing (or lack thereof), and 
   * https://docs.docker.com/get-docker/
 * Setup db using docker compose
   * `docker compose -f database.yml up`
+
+
+## Entity Framework Commands
+* Create Migration
+  * `dotnet ef migrations add <name>`
+* Update DB
+  * `dotnet ef database update`

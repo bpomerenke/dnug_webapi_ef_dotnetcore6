@@ -1,3 +1,4 @@
+using DonorApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DonorApi.Controllers;
@@ -7,16 +8,18 @@ namespace DonorApi.Controllers;
 public class DonorsController : ControllerBase
 {
     private readonly ILogger<DonorsController> _logger;
+    private readonly IDonorDbContext _donorDbContext;
 
-    public DonorsController(ILogger<DonorsController> logger)
+    public DonorsController(ILogger<DonorsController> logger, IDonorDbContext donorDbContext)
     {
         _logger = logger;
+        _donorDbContext = donorDbContext;
     }
 
     [HttpGet("")]
-    public IEnumerable<string> Get()
+    public IEnumerable<Donor> Get()
     {
-        _logger.LogInformation("Hello World");
-        return new List<string>{ "hello", "world" };
+        _logger.LogInformation("Fetching donors...");
+        return _donorDbContext.Donors.ToList();
     }
 }
