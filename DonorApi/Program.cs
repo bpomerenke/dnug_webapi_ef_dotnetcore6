@@ -1,3 +1,6 @@
+using DonorApi.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = builder.Configuration.GetSection("Database").GetValue<string>("ConnectionString");
+builder.Services.AddDbContext<DonorDbContext>(opt => opt.UseNpgsql(connectionString));
+builder.Services.AddScoped<IDonorDbContext, DonorDbContext>();
 
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
