@@ -34,8 +34,19 @@ public class DataLoader : IDataLoader
 
     private Faker<Donor> FakeDonor()
     {
+        var designations = new List<string>
+        {
+            "Alumni",
+            "Parent",
+            "Faculty"
+        };
+        
         return new Faker<Donor>()
             .RuleFor(d => d.Name, f => f.Name.FullName())
-            .RuleFor(d => d.PhoneNumber, f => f.Phone.PhoneNumber("###-###-####"));
+            .RuleFor(d => d.PhoneNumber, f => f.Phone.PhoneNumber("###-###-####"))
+            .RuleFor(d => d.Designations, f => 
+                f.Make(f.Random.Int(0,2),
+                    () => new Designation { Label = f.PickRandom(designations) }
+                ));
     }
 }

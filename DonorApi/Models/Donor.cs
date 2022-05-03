@@ -15,4 +15,6 @@ public class Donor
     
     [Column("phone_number")]
     public string PhoneNumber { get; set; }
+    
+    public virtual List<Designation> Designations { get; set; }
 }

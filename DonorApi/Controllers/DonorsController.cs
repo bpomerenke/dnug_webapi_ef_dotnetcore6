@@ -1,5 +1,6 @@
 using DonorApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DonorApi.Controllers;
 
@@ -20,6 +21,6 @@ public class DonorsController : ControllerBase
     public IEnumerable<Donor> Get()
     {
         _logger.LogInformation("Fetching donors...");
-        return _donorDbContext.Donors.ToList();
+        return _donorDbContext.Donors.Include(d => d.Designations).ToList();
     }
 }
