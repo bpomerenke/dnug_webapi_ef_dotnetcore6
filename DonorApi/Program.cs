@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetSection("Database").GetValue<string>("ConnectionString");
 builder.Services.AddDbContext<DonorDbContext>(opt => opt.UseNpgsql(connectionString));
 builder.Services.AddScoped<IDonorDbContext, DonorDbContext>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
