@@ -3,8 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DonorApi.Models;
 
-[Table("designation", Schema = "data")]
-public class Designation
+
+[Table("pledges", Schema = "data")]
+public class Pledge
 {
     [Key]
     [Column("id")]
@@ -13,8 +14,11 @@ public class Designation
     [Column("donor_id")]
     public int DonorId { get; set; }
     
-    [Column("label")]
-    public string Label { get; set; }
+    [Column("amount")]
+    public int Amount { get; set; }
+    
+    [Column("date")]
+    public DateTimeOffset Date { get; set; }
     
     public virtual Donor Donor { get; set; }
 }

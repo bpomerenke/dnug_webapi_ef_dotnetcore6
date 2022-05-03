@@ -16,5 +16,10 @@ public class Donor
     [Column("phone_number")]
     public string PhoneNumber { get; set; }
     
+    [Column("current_drive_status")]
+    public int CurrentDriveStatus { get; set; }
+    
     public virtual List<Designation> Designations { get; set; }
+    
+    public virtual List<Pledge> Pledges { get; set; }
 }
